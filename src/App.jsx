@@ -7,6 +7,7 @@ import Contacts from './components/Contacts';
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setContacts] = useState([]);
+  const [showContacts, setShowContacts] = useState([]);
 
   const filterList = event => {
     let updatedList = contacts;
@@ -15,7 +16,7 @@ function App() {
       return item.name.toLowerCase().includes(event.target.value.toLowerCase());
     });
     console.log(updatedList)
-    setContacts(updatedList)
+    setShowContacts(updatedList)
     setSearchTerm(event.target.value.toLowerCase())
   }
 
@@ -23,7 +24,8 @@ function App() {
 		fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
 		.then((response) => response.json())
 		.then((data) => {
-			setContacts(data)
+            setContacts(data)
+            setShowContacts(data)
     });
 	}, []);
 
@@ -31,7 +33,7 @@ function App() {
     <React.Fragment>
       <Topbar />
       <Filters onChange={filterList} value={searchTerm} />
-      <Contacts data={contacts}/>
+      <Contacts data={showContacts}/>
     </React.Fragment>
   )
 }

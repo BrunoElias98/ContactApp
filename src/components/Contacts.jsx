@@ -2,6 +2,8 @@ import React, { memo } from "react";
 import Contact from './Contact';
 
 function Contacts(props) {
+	const { data } = props;
+
 	return (
 		<div className="container">
 			<section className="contacts">
@@ -15,7 +17,7 @@ function Contacts(props) {
 					<span className="contact__data">Departamento</span>
 				</article>
 
-				{props.data.map((contacts, index) => 
+				{data.map((contacts, index) => 
 					<Contact key={index} data={contacts} />
 				)}
 			</section>

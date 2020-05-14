@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default function Filters(props) {
-	const { onChange, value } = props;
+	const { onChange } = props;
 
 	return (
 		<div className="container">
 			<section className="filters">
 				<div className="filters__search">
-				<input type="text" className="filters__search__input" placeholder="Pesquisar" onChange={onChange} value={value} />
+				<input type="text" className="filters__search__input" placeholder="Pesquisar" onChange={onChange} />
 
 				<button className="filters__search__icon">
 					<i className="fa fa-search"/>

@@ -2,23 +2,23 @@ import React, { memo } from "react";
 import Contact from './Contact';
 
 function Contacts(props) {
-	const { data } = props;
+	const { contactData } = props;
 
 	return (
-		<div className="container">
+		<div data-testid="contacts" className="container">
 			<section className="contacts">
 				<article className="contact">
-					<span className="contact__avatar" />
-					<span className="contact__data">Nome</span>
-					<span className="contact__data">Telefone</span>
-					<span className="contact__data">País</span>
-					<span className="contact__data">Admissão</span>
-					<span className="contact__data">Empresa</span>
-					<span className="contact__data">Departamento</span>
+					<span data-testid="contacts-avatar" className="contact__avatar" />
+					<span data-testid="contacts-name" className="contact__data">Nome</span>
+					<span data-testid="contacts-phone" className="contact__data">Telefone</span>
+					<span data-testid="contacts-country" className="contact__data">País</span>
+					<span data-testid="contacts-date" className="contact__data">Admissão</span>
+					<span data-testid="contacts-company" className="contact__data">Empresa</span>
+					<span data-testid="contacts-department" className="contact__data">Departamento</span>
 				</article>
 
-				{data.map((contacts, index) => 
-					<Contact key={index} data={contacts} />
+				{contactData && contactData.map(contacts => 
+					<Contact key={contacts.id} contactData={contacts} />
 				)}
 			</section>
 		</div>
